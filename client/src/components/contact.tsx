@@ -139,7 +139,7 @@ export default function Contact() {
                   <p className="text-slate-600 mb-4">Follow me on social media:</p>
                   <div className="flex space-x-4">
                     <a 
-                      href="https://linkedin.com/in/raj-shekhar" 
+                      href="https://www.linkedin.com/in/raj-shekhar~/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 hover:bg-blue-200 transition-colors"

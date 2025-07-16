@@ -37,7 +37,7 @@ export default function Footer() {
           
           <div className="flex justify-center space-x-4 mb-6">
             <a 
-              href="https://linkedin.com/in/raj-shekhar" 
+              href="https://www.linkedin.com/in/raj-shekhar~/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-600 transition-colors"

@@ -56,7 +56,7 @@ export default function Navigation() {
           
           <div className="flex items-center space-x-4">
             <a 
-              href="https://linkedin.com/in/raj-shekhar" 
+              href="https://www.linkedin.com/in/raj-shekhar~/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-600 hover:text-blue-600 transition-colors"
