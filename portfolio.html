@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Shekhar | Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #020617;
+            color: #cbd5e1;
+        }
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #5eead4, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient-animation 5s linear infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .section {
+            scroll-margin-top: 100px;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(94, 234, 212, 0.25), 0 0 45px rgba(96, 165, 250, 0.15);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #5eead4, #2563eb);
+            transition: all 0.3s ease-in-out;
+            background-size: 200% 100%;
+        }
+        .btn-primary:hover {
+            background-position: right center;
+        }
+        .side-element {
+            display: none;
+            writing-mode: vertical-rl;
+        }
+        @media (min-width: 1024px) {
+            .side-element {
+                display: block;
+            }
+        }
+        /* Typing effect */
+        #typing-text::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900">
+
+    <!-- Left Social Links -->
+    <div class="side-element fixed bottom-0 left-8 z-10">
+        <div class="flex flex-col items-center gap-6">
+            <a href="https://github.com/shekharshekharraj" target="_blank" class="text-slate-400 hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 text-2xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/raj-shekhar~/" target="_blank" class="text-slate-400 hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 text-2xl"><i class="fab fa-linkedin"></i></a>
+            <div class="w-px h-24 bg-slate-600 mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Right Email Link -->
+     <div class="side-element fixed bottom-0 right-8 z-10">
+        <div class="flex flex-col items-center gap-6">
+            <a href="mailto:shekharshekharraj2220@gmail.com" class="font-mono text-slate-400 hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 tracking-widest text-sm">
+                shekharshekharraj2220@gmail.com
+            </a>
+             <div class="w-px h-24 bg-slate-600 mt-2"></div>
+        </div>
+    </div>
+
+
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-lg sticky top-0 z-40 border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                <span class="gradient-text">Raj Shekhar</span>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center font-mono text-sm">
+                <a href="#about" class="hover:text-teal-300 transition-colors"><span class="text-teal-300">01.</span> About</a>
+                <a href="#experience" class="hover:text-teal-300 transition-colors"><span class="text-teal-300">02.</span> Experience</a>
+                <a href="#projects" class="hover:text-teal-300 transition-colors"><span class="text-teal-300">03.</span> Work</a>
+                <a href="#contact" class="hover:text-teal-300 transition-colors"><span class="text-teal-300">04.</span> Contact</a>
+                <a href="https://drive.google.com/file/d/1XeM3pluofQA05nqR58R_sphNqfr1bRhu/view?usp=sharing" target="_blank" class="border border-teal-300 text-teal-300 hover:bg-teal-300/10 font-bold py-2 px-4 rounded-md transition-colors">Resume</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 text-center">
+             <a href="#about" class="block py-2 hover:text-teal-300 transition-colors">About</a>
+             <a href="#experience" class="block py-2 hover:text-teal-300 transition-colors">Experience</a>
+             <a href="#projects" class="block py-2 hover:text-teal-300 transition-colors">Projects</a>
+             <a href="#contact" class="block py-2 hover:text-teal-300 transition-colors">Contact</a>
+             <a href="./12218478_RajShekhar (1) (10).pdf" target="_blank" class="block py-3 bg-teal-500 text-white rounded-lg mt-2">Resume</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+        <!-- Hero Section -->
+        <section class="min-h-[calc(100vh-100px)] flex items-center py-20">
+            <div class="max-w-4xl">
+                <p class="text-lg text-teal-300 mb-4 font-mono reveal">Hi, my name is</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-100 leading-tight mb-4 reveal" style="transition-delay: 100ms;">
+                    Raj Shekhar.
+                </h1>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-slate-400 leading-tight mb-6 reveal" style="transition-delay: 200ms;">
+                    I build <span id="typing-text" class="gradient-text"></span>
+                </h2>
+                <p class="text-xl text-slate-400 mb-8 max-w-2xl reveal" style="transition-delay: 300ms;">
+                    I'm a full-stack developer specializing in building exceptional digital experiences. Currently, I'm focused on engineering distributed, low-latency applications and exploring the world of cloud technologies.
+                </p>
+                <div class="reveal" style="transition-delay: 400ms;">
+                     <a href="mailto:shekharshekharraj2220@gmail.com" class="btn-primary text-white font-bold py-4 px-8 rounded-lg text-lg">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 section reveal">
+             <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-12 flex items-center gap-4"><span class="text-teal-300 font-mono">01.</span> About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3 text-lg text-slate-400 leading-relaxed">
+                    <p class="mb-4">Hello! I'm Raj, a Computer Science student with a deep-seated passion for technology. My journey into web development is driven by a desire to solve complex problems and create tangible, impactful solutions. I thrive on turning ideas into robust, scalable applications.</p>
+                    <p class="mb-4">My expertise spans the MERN stack, where I leverage modern tools like React, TypeScript, and Node.js. From architecting a real-time music streaming platform with WebSockets to developing a secure e-commerce store optimized with Redis caching, I have hands-on experience in building full-stack systems.</p>
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    <ul class="grid grid-cols-2 gap-2 mt-4 text-slate-400 font-mono text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>TypeScript</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>React.js</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>Node.js</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>MongoDB</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>AWS</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-caret-right text-teal-300"></i>Docker</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 relative">
+                    <div class="w-full max-w-xs mx-auto rounded-lg group">
+                        <div class="absolute inset-0 bg-teal-300 rounded-lg transform translate-x-3 translate-y-3 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                        <img src="https://placehold.co/500x500/0f172a/5eead4?text=RS" alt="Raj Shekhar" class="relative rounded-lg z-10 transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section id="experience" class="py-24 section reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-12 flex items-center gap-4"><span class="text-teal-300 font-mono">02.</span> My Journey</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative border-l-2 border-slate-700 pl-10">
+                    <div class="mb-12">
+                        <div class="absolute -left-3.5 mt-1.5 w-6 h-6 rounded-full bg-teal-300 border-4 border-slate-900"></div>
+                        <p class="text-slate-400 font-mono text-sm">2022 - 2026</p>
+                        <h3 class="text-xl font-bold text-slate-100">Bachelor of Technology - CSE</h3>
+                        <p class="text-teal-300 font-semibold mb-2">Lovely Professional University</p>
+                        <ul class="list-disc list-inside text-slate-400 space-y-1">
+                            <li>CGPA: 7.1</li>
+                            <li>Core coursework: Data Structures, Algorithms, OOP, System Design.</li>
+                        </ul>
+                    </div>
+                    <div>
+                         <div class="absolute -left-3.5 mt-1.5 w-6 h-6 rounded-full bg-teal-300 border-4 border-slate-900"></div>
+                         <p class="text-slate-400 font-mono text-sm">2019 - 2021</p>
+                        <h3 class="text-xl font-bold text-slate-100">Senior Secondary (12th)</h3>
+                        <p class="text-teal-300 font-semibold mb-2">Holy Mission Senior Secondary School</p>
+                        <ul class="list-disc list-inside text-slate-400 space-y-1">
+                             <li>Achieved 92% in senior secondary education.</li>
+                             <li>Focused on Physics, Chemistry, and Mathematics.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 section reveal">
+             <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-12 flex items-center gap-4"><span class="text-teal-300 font-mono">03.</span> Things I've Built</h2>
+            <div class="space-y-24">
+                 <!-- Project 1 -->
+                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 relative z-10">
+                        <p class="text-teal-300 font-mono mb-2">Featured Project</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mb-4 hover:text-teal-300"><a href="https://github.com/shekharshekharraj/Spotify-Clone-Full-Stack-Music-Streaming-Social-App" target="_blank">Tunify - Music Streaming & Social App</a></h3>
+                        <div class="glass-card p-6 rounded-lg shadow-lg">
+                            <p class="text-slate-300">A feature-rich, full-stack music streaming application inspired by Spotify. This project combines a seamless audio playback experience with real-time social features, allowing users to listen to music, see their friends' activity, and chat one-on-one. It also includes a complete administrative backend for managing the music catalog.</p>
+                        </div>
+                        <ul class="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-slate-400 font-mono text-sm">
+                            <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Socket.IO</li><li>Zustand</li>
+                        </ul>
+                        <div class="mt-4 flex gap-4 items-center">
+                            <a href="https://github.com/shekharshekharraj/Spotify-Clone-Full-Stack-Music-Streaming-Social-App" target="_blank" class="text-slate-400 hover:text-teal-300 transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-teal-300 transition-colors text-2xl"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                     <div class="md:col-span-5 md:order-first opacity-25 md:opacity-100 hover:opacity-90 transition-opacity">
+                        <a href="https://github.com/shekharshekharraj/Spotify-Clone-Full-Stack-Music-Streaming-Social-App" target="_blank" class="block">
+                            <img src="https://placehold.co/600x360/0f172a/5eead4?text=Tunify" alt="Tunify Project" class="rounded-lg shadow-2xl">
+                        </a>
+                    </div>
+                </div>
+                 <!-- Project 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-5 opacity-25 md:opacity-100 hover:opacity-90 transition-opacity">
+                         <a href="https://github.com/shekharshekharraj/E-Commerce-Platform-Full-Stack-Online-Store" target="_blank" class="block">
+                            <img src="https://placehold.co/600x360/0f172a/60a5fa?text=E-Commerce" alt="E-Commerce Project" class="rounded-lg shadow-2xl">
+                        </a>
+                    </div>
+                    <div class="md:col-span-7 relative z-10 text-right">
+                        <p class="text-teal-300 font-mono mb-2">Featured Project</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mb-4 hover:text-teal-300"><a href="https://github.com/shekharshekharraj/E-Commerce-Platform-Full-Stack-Online-Store" target="_blank">Full-Stack E-Commerce Platform</a></h3>
+                        <div class="glass-card p-6 rounded-lg shadow-lg text-left">
+                           <p class="text-slate-300">A comprehensive, full-stack e-commerce application built with the MERN stack (MongoDB, Express.js, React, Node.js). This platform provides a complete online retail experience, featuring a dynamic shopping cart, secure payment processing with Stripe, and a full-featured admin dashboard for product management and sales analytics.</p>
+                        </div>
+                        <ul class="flex flex-wrap justify-end gap-x-4 gap-y-2 mt-4 text-slate-400 font-mono text-sm">
+                            <li>React</li><li>Node.js</li><li>Stripe</li><li>Redis</li><li>JWT</li><li>Framer Motion</li>
+                        </ul>
+                        <div class="mt-4 flex gap-4 items-center justify-end">
+                            <a href="https://github.com/shekharshekharraj/E-Commerce-Platform-Full-Stack-Online-Store" target="_blank" class="text-slate-400 hover:text-teal-300 transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                             <a href="#" class="text-slate-400 hover:text-teal-300 transition-colors text-2xl"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Projects Archive -->
+        <section class="py-24 section reveal text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Other Noteworthy Projects</h2>
+            <p class="text-teal-300 font-mono mb-12"><a href="https://github.com/shekharshekharraj" target="_blank" class="hover:underline">view the archive</a></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Archive Card 1 -->
+                <div class="glass-card p-6 rounded-lg text-left">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder-open text-3xl text-teal-300"></i>
+                         <a href="#" class="text-slate-400 hover:text-teal-300 transition-colors text-xl"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Audio-to-Text RAG for Podcast Search</h3>
+                    <p class="text-slate-400 text-sm mb-4">A brief description of another cool project I worked on.</p>
+                    <ul class="flex flex-wrap gap-x-3 text-slate-500 font-mono text-xs">
+                        <li>Python</li><li>Chroma</li><li>Hugging Face</li>
+                    </ul>
+                </div>
+                <!-- Archive Card 2 -->
+                 <div class="glass-card p-6 rounded-lg text-left">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder-open text-3xl text-teal-300"></i>
+                         <a href="#" class="text-slate-400 hover:text-teal-300 transition-colors text-xl"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">EduVerify: Android Document Verification & Academic Tracker App</h3>
+                    <p class="text-slate-400 text-sm mb-4">Another project showcasing my skills in different areas.</p>
+                    <ul class="flex flex-wrap gap-x-3 text-slate-500 font-mono text-xs">
+                        <li>Kotlin</li><li>Firebase</li><li>Cloudinary</li>
+                    </ul>
+                </div>
+                <!-- Archive Card 3 -->
+                 <div class="glass-card p-6 rounded-lg text-left">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder-open text-3xl text-teal-300"></i>
+                         <a href="#" class="text-slate-400 hover:text-teal-300 transition-colors text-xl"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Gupshup: A Real-Time Communication Platform Introduction</h3>
+                    <p class="text-slate-400 text-sm mb-4">Exploring new technologies with this experimental project.</p>
+                    <ul class="flex flex-wrap gap-x-3 text-slate-500 font-mono text-xs">
+                        <li>Socket.io</li><li>React.js</li><li>Zustand</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center section reveal">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4"><span class="text-teal-300 font-mono">04.</span> What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-slate-100 mb-6">Get In Touch</h3>
+            <p class="max-w-xl mx-auto text-lg text-slate-400 mb-8">
+                I'm currently seeking opportunities for internships and full-time roles. My inbox is always open, whether you have a question, a potential opportunity, or just want to say hi, I'll get back to you!
+            </p>
+            <a href="mailto:shekharshekharraj2220@gmail.com" class="btn-primary text-white font-bold py-4 px-10 rounded-lg text-xl inline-block">
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20">
+        <div class="container mx-auto px-6 py-8 flex flex-col items-center">
+             <div class="flex space-x-6 mb-4 md:hidden">
+                <a href="https://github.com/shekharshekharraj" target="_blank" class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/raj-shekhar" target="_blank" class="text-slate-400 hover:text-white transition-colors text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="text-sm text-slate-500 font-mono">Designed & Built by Raj Shekhar.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll reveal animation
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Typing effect
+        const typingTextElement = document.getElementById('typing-text');
+        const words = ["scalable backends.", "interactive frontends.", "RESTful APIs.", "full-stack solutions."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            const typingSpeed = isDeleting ? 100 : 150;
+            setTimeout(type, typingSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+</html>
+
